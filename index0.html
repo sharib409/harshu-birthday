@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Happy Birthday Harshu 💖</title>
+
+<style>
+body{
+  margin:0;
+  font-family:Arial;
+  background:black;
+  color:white;
+  overflow:hidden;
+  text-align:center;
+}
+
+/* CENTER */
+.container{
+  height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+}
+
+/* NAME GLOW */
+.name{
+  font-size:60px;
+  color:#ff4fa3;
+  text-shadow:0 0 25px #ff4fa3;
+  animation: glow 1.5s infinite alternate;
+}
+
+@keyframes glow{
+  from{transform:scale(1);}
+  to{transform:scale(1.15);}
+}
+
+/* TEXT */
+p{
+  opacity:0.85;
+  font-size:18px;
+}
+
+/* HEART */
+.heart{
+  position:fixed;
+  top:-10px;
+  color:#ff4fa3;
+  animation: fall 6s linear forwards;
+}
+
+@keyframes fall{
+  to{transform:translateY(110vh);}
+}
+
+/* CONFETTI */
+.confetti{
+  position:fixed;
+  width:8px;
+  height:8px;
+  top:-10px;
+  animation: drop 4s linear forwards;
+}
+
+@keyframes drop{
+  to{transform:translateY(110vh) rotate(360deg);}
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+  <div class="name">🎂 HAPPY BIRTHDAY HARSHU 🎂</div>
+  <p>💖 You are special, you are important, you are loved 💖</p>
+  <p>✨ This little surprise is just for you ✨</p>
+</div>
+
+<script>
+
+let heartInterval;
+
+/* HEARTS */
+function hearts(){
+  heartInterval=setInterval(()=>{
+    let h=document.createElement("div");
+    h.className="heart";
+    h.innerHTML="❤️";
+    h.style.left=Math.random()*100+"vw";
+    document.body.appendChild(h);
+    setTimeout(()=>h.remove(),6000);
+  },250);
+}
+
+/* CONFETTI */
+function confetti(){
+  for(let i=0;i<120;i++){
+    let c=document.createElement("div");
+    c.className="confetti";
+    c.style.left=Math.random()*100+"vw";
+    c.style.background=["#ff4fa3","#fff","#ffea00","#00ffcc"][Math.floor(Math.random()*4)];
+    document.body.appendChild(c);
+    setTimeout(()=>c.remove(),4000);
+  }
+}
+
+/* START EFFECTS */
+hearts();
+confetti();
+
+</script>
+
+</body>
+</html>
